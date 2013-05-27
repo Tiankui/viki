@@ -1,0 +1,25 @@
+# 工作总结
+
+
+## BAI 编译平台
+### 依赖的node包
+- `colors` 终端实现带色输出
+- `grunt` build 工具
+  - *本周任务*
+    - 了解`grunt`源码
+- `commander` node 命令行加强
+
+### 其他了解的包
+- `iconv-lite`
+- `hooker` 方便输出log的钩子,浏览器和node都可用
+
+## 本组服务器相关
+- 目前的登录方式需要`relay`去跳转一次,babel地址http://wiki.babel.baidu.com/twiki/bin/view/Main/Relay
+- 然后ssh 登陆服务器dbl-bpit-fe01.vm.baidu.com,密码统一为123123
+- 
+-
+
+## todo
+- `node eventemitter` 的研究
+- `async` 的研究
+- `underscore` 的研究

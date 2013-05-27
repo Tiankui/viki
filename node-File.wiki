@@ -1,0 +1,35 @@
+# Nodejs-FileSystem
+
+## Class: fs.Stats
+- 相关方法,相应同步方法忽略
+  - `fs.stat(path,[callback])` callback参数(err,stats),返回fs.Stats对象
+  - `fs.lstat` 针对连接符进行了处理
+  - `fs.fstat` 不详,文档看不明白
+- 对象本身方法
+  - `stats.isFile()`
+  - `stats.isDirection()`
+  - `stats.isBlockDevice()` 不详
+  - `stats.isCharacterDevice()` 不详
+  - `stats.isSymbolicLink()` 只有在fs.lstat时返回
+  - `stats.isFIFO()` 不详
+  - `stats.isSocket()` 嵌套字需要复习
+- 使用内窥工具`util.inspect(stats)`,一般文件会产生一下结果
+
+    {
+      dev: 2114,
+      ino:48064969,
+      mode: 33188,
+      nlink: 1,
+      uid: 85,
+      gid: 100,
+      rdev: 0,
+      size: 527,
+      blksize: 4096,
+      blocks: 8,
+      atime: Mon, 10 Oct 2011 23:24:11 GMT,
+      mtime: Mon, 10 Oct 2011 23:24:11 GMT,
+      ctime: Mon, 10 Oct 2011 23:24:11 GMT
+    }
+  - 注意 `atime,mtime,ctime` 是 `Data`对象的实例,比较这些属性,需要格式化为其他类型世间代码,一般使用`getTime()`.
+  - 延伸阅读 https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Date
+  - *以上信息补全需要以后去查unix文件系统相关书籍*

@@ -1,0 +1,24 @@
+# NPM积累
+## npm 账户和发布
+- `npm adduser`根据提示输入用户名,密码,邮箱
+- `npm whoami`检测当前的npm账户
+- `npm init`初始化一个新的node包
+- `npm publish`发布当前的node包
+- 修改PKG文件的`version`字段,`npm publish`重新发布当前包
+- `npm unpublish xxx`取消发布以前发布的包
+
+## 本地模式和局部模式
+- `npm install -g xxxx` 全局安装
+- `npm link xxxx` 当前文件下可以使用全局安装的包
+- `npm link` 在PKG文件所在的目录下运行此命令,将可以在全局使用此包,方便调试
+
+##命令
+- `Run npm install -D grunt-contrib-stylus`. 会在你当前文件夹下的package.json里添加新的依赖.
+
+## PKG文件设置
+- `private` 设置是否是私有包,如果为true,将不可发布
+- `name` 设置包名字
+- `description` 包的描述
+- `author` 包作者信息
+- `version` 版本号,如需更新,需要修改版本号
+- `dependencies` 包的依赖

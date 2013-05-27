@@ -1,0 +1,13 @@
+# Mac 终端的玩法
+
+- 建议使用[Iterm2](http://www.iterm2.com "Iterm2")
+- 包管理器`Homebrew`[Homebrew](http://mxcl.github.com/homebrew/ "Homebrew")
+- `zsh`
+
+    brew install zsh
+
+- [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh "oh-my-zsh")  
+- 其他东西以后面谈,需要一点配置
+
+# 修复iterm2启动慢
+- `udo rm /private/var/log/asl/*.asl`

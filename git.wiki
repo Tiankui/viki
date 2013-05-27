@@ -1,0 +1,25 @@
+# GIT
+
+- `git cl xxxx -recursive`递归调用clone,将依赖的submodule一并下载下来
+- `git remote -v`查看远程git仓库地址
+- `git -bare init` 简历远程仓库
+
+### Tag
+git的tag,跟分支一样简单.
+
+- `git tag xxxx` 打tag
+- `git tag -f xxxx` 覆盖原有的tag
+- `git tag`显示所有tag
+- `git tag -d xxxx`删除tag
+- `git push origin xxxx`push相应的tag到服务器上
+- `git push origin --tag`把所有tag都push到服务器上
+值得注意的是如果tag名字和分支名字一样的时候,push需要指定refs的详细路径.
+因为分支和tag在git内部是这样表示的(只是引用),tag只存储所指向的那一次提交:  
+
+    refs/tags/{tagnane} refs/heads/branches/{branchnane} 
+
+所以要这样push相同名字的tag和分支
+
+    git push origin refs/tags/product $: git push origin refs/heads/branches/product
+
+把所有的tag都push到服务器上

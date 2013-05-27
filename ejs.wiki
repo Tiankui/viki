@@ -1,0 +1,77 @@
+#ejs
+翻译了filters,其他用法模块较简单,移步[ejs-github](https://github.com/visionmedia/ejs)  
+
+
+### 特性
+- 用Express view系统编译
+- 对之内的js进行静态缓存
+- 运行代码 `<% code %>`
+- Escapes HTML `<%= code %>`
+- Unescaped 使用 `<%- code %>`
+- 支持自定义tag
+- Filter 对设计者友好
+- includes
+- 浏览器端支持
+- 开新行使用 `<% code -%>` `<% -%>` `<%= code -%>` `<%- code -%>`
+
+### Filters
+要在原本使用方法前加冒号`:`
+对于数据结构[{ name: 'tj'}, { name: 'mape'}, { name: 'guillermo'}]   
+
+- Template:
+
+  		<p><%=: users | map: 'name' | join %></p>
+
+- Output:
+
+      <p>Tj, Mape, Guillermo</p>
+
+- Render
+
+      ejs.render(str, {
+         users: [
+           { name: 'tj' },
+           { name: 'mape' },
+           { name: 'guillermo' }
+         ]
+      });
+
+### Filters-list
+- first 第一个
+- last 最后一个
+- capitalize 首字母大写
+- downcase 小写
+- upcase 大写
+- sort 同js的sort
+- sort_by:'prop' 在数据集合的属性级别调用sort,接受一个参数为属性名
+- size 返回字符长度
+- length 同上
+- plus:n 加法(接受数字类型数据和参数.不然报错)
+- minus:n 减法(同上)
+- times:n 乘法(同上)
+- divided_by:n 除法(同上)
+- join:'val' 等同于JS的join,接受字符串参数,默认为','
+- truncate:n 截取 接受
+- truncate_word 按文字截取(这个对中文没用,分词方式不同,中文分词是个坑)
+- replace:pattern,substitution 等同于JS的replace,接受两个参数`pattern`和`substitution`,一般是正则和替代文本,`substitution`默认为空
+- repend:val 加前缀
+- append:val 加后缀
+- map:'prop' 遍历返回传输对象的属性集合
+- reverse    翻转
+- get:'prop' 返回单个属性
+- json       转换数据为相应的json字符串
+
+其中最常用的就是截字了
+
+    <p><%=: user.msg | truncate : 6 %></p>
+
+一般常用的汉语截取都会在最后加上`...`   
+family项目中针对这种情况添加了`truncate_`方法.在截取的左后加上了`...`
+
+### 添加Filters
+
+    ejs.filters.last = function(obj){
+      return obj[obj.length - 1];
+    }
+
+

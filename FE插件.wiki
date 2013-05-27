@@ -1,0 +1,3 @@
+# FE插件
+
+- flexslider

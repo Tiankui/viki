@@ -1,0 +1,33 @@
+# Siege 围攻
+
+百度百科 [siege](http://baike.baidu.com/view/8520208.htm "siege")  
+[其他压测工具](http://www.opensourcetesting.org/performance.php)  
+
+- 用例
+
+    siege -c100 -t1M http://baidu.com
+
+- `c` 设置用户数目
+- `t` 设置时间
+- `r` 设置循环次数
+- `q` 安静模式
+- `g` 现实http握手
+
+### 输出项
+
+- `Transactions` 访问次数
+- `Availability` 成功次数
+- `Elapsed Time` 测试用时
+- `Data transferred` 测试传输数据量
+- `Response time` 平均响应时间
+- `Transaction rate` 每秒事务处理量
+- `Throughout` 吞吐量
+- `Concurrency` 并发用户数
+- `Successful transaction` 成功传输次数
+- `Failed transaction` 失败传输次数
+- `Longest transaction` 最长响应时间
+- `Shortest transaction` 最短响应时间
+
+
+
+

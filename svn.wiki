@@ -1,0 +1,6 @@
+# SVN
+递归删除.svn文件夹
+
+    find . -name ".svn" -type d | xargs rm -rf
+
+

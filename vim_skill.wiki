@@ -1,0 +1,132 @@
+# VIM
+
+- vim操作光标在导航栏时候`q`,将推出导航栏,在编辑栏时`q`,将进入recording模式(等待挖掘)
+- vim `,n`打开导航栏,`,b`打开最近的打开过的缓冲区
+- `gt`切换tab,最紧要是练操作这个操作,以提高效率
+
+文件之间跳转
+---
+* `gf` 打开光标下的文件
+* `ctrl+6` 跳回
+
+多行编辑
+---
+* `ctrl+v`进图列模式
+* 行首选择需要注释的行
+* 按下`I`.进乳插入模式
+* 属入注释符号`#`,`//`等
+* esc
+
+Marks 标记
+---
+* `:marks` 显示所有标记
+* `ma` 标记及当前文件到a
+* `'a` 定位到当前位置a
+* `mA` 标记全局标记A
+* `'A` 定位到全局标记A
+* `''`当前文件的上一次位置(跳转回去)
+
+插入时间
+---
+* `:r !date`
+> 2012年12月13日 星期四 13时30分31秒 CST
+
+Buffers
+---
+* `ls`,`buffers` 显示所有缓冲区
+* `hide` 隐藏此缓冲区
+* `unhide` 重新打开此缓冲区
+* `bn` 下一个缓冲区
+* `bp` 前一个缓冲区
+* `b#` 你之前所在的缓冲区
+* `<leader> + b`打开buffer缓冲区
+
+Ctags,jstags插件 Tagbar
+---
+* `ctrl+]` 可以跳转到目标函数
+* `ctrl+o`,`ctrl+t` 可以跳转到之前的文件
+* `\rt` 插件的呼出热键
+* `jstags 文件夹路径`
+* `ctags -R 或 ctags --recurse`
+* `ctags lib/`就会在当前文件夹下生成tags文件
+
+NERDTree
+---
+* `\n` toggle 插件
+
+注释NERDCommenter
+---
+* `<leaderKey>c+space` 切换注释状态
+
+Ack
+---
+* `:ack` 在当前文件下查找
+
+Janus 本身的快捷键
+---
+* `,fef` 格式化当前文件
+* `,f` ack
+* `,hs` toggle highlight search
+* `set nohl`highlight 关闭高亮
+
+移动加强
+---
+* `w` 移动到下一个单词的开始
+* `e` 移动到这个单词的结尾
+* `b` 移动到上一个单词
+* `zz` 光标所在行滚到屏幕中间
+* `home` `end` `0` `$` 分别是本行的开始和结尾.hhkb的home是`k`,end是`<`
+* `%`移动到配对的符号,如{}
+
+Janus customizations:
+---
+* No wrap (turn off per-buffer via :set wrap)
+* Soft 2-space tabs, and default hard tabs to 2 spaces
+* 空格显示为`.`
+* Make searching highlighted, incremental, and case insensitive unless a capital letter is used
+* <C-P> 目录查找
+* <GUI> 下自动切换分屏大小
+* <leader>ew = :e (目为为当前文件目录)/ (当前缓冲区打开)
+* <leader>es expands to :sp (directory of current file)/ (open in a horizontal split)
+* <leader>ev expands to :vsp (directory of current file)/ (open in a vertical split)
+* <leader>et expands to :tabe (directory of current file)/ (open in a new tab)
+* Write a privileged file with :SudoW or :SudoWrite, it will prompt for sudo password when writing
+* <leader>fef formats the entire file
+* <leader>u converts the entire word to uppercace
+* <leader>l converts the entire word to lowercase
+* <leader>U converts the first char of a word to uppercase
+* <leader>L converts the first char of a word to lowercase
+* <leader>cd changes the path to the active buffer's file
+* <leader>md creates the directory of the active buffer's file (For example, when editing a new file for which the path does not exist.)
+* gw swaps the current word with the following word
+* <leader>ul underlines the current line with =
+* <leader>tw toggles wrap
+* <leader>fc finds the next conflict marker (tested with Git conflicted files)
+* Remap <Down> and <Up> to gj and gk (Wrapped text is not considered a single long line of text.)
+* <leader>hs toggles highlight search
+* <leader>= adjusts viewports to the same size (<C-w>=)
+* <A-[ (<D-[ on MacVim) shifts current line or selected lines rightwards
+* <A-] (<D-] on MacVim) shifts current line or selected lines leftwards
+* <C-W>! invokes kwbd plugin; it closes all open buffers in the open windows but keeps the windows open
+
+折叠
+---
+* `zi` 打开全部折叠
+* `zc` 折叠
+* `zo` 打开当前折叠
+* `zf` 创建折叠(marker模式下)
+* `zd` 删除折叠(marker模式下)
+
+查看undo记录
+---
+* gundo `F5`
+
+大小写转换
+---
+- `gu` 小写 `gU` 大写
+- `vw` 选择当前词
+
+查找和替换
+---
+-`:s/vivian/sky/g` 替换当前行所有 vivian 为 sky
+-`:n,$s/vivian/sky/` 替换第 n 行开始到最后一行中每一行的第一个 vivian 为 sky
