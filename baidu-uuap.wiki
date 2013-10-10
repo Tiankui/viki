@@ -1,0 +1,8 @@
+baidu-uuap 的登录模式
+
+- 带上回调url,@param(server=?)@param(serverUrl=?)
+```
+https://itebeta.baidu.com//login?service=http%3A%2F%2Flocalhost%3A8998%2Fportal%2Flogin%3FserviceUrl%3Dhttp%253A%252F%252Flocalhost%253A8998%252Fportal%252F
+```
+- 回调会带上ticket(uuap-key)
+- 之间封装了remoteUser进请求,session可以直接取到

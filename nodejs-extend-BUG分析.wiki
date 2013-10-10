@@ -1,0 +1,7 @@
+_.extend(a,b);
+用b去扩展a,会改变a的数值
+
+_.extend(require('./data.json'),{a:1111});
+为什么会影响全局的require('./data.json')的数值,是因为nodejs的require计数器的原因.权局只引入一次,修改了这里就等于修改了全局引入的那个对象,所以形成了多个文件之间被继承的假想
+
+加爵方案,先c = _.clone(require('./data.json')),再 _.extend(c,b);这样更改的就只是局部变量c了

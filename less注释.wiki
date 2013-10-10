@@ -1,0 +1,12 @@
+### 忽略
+'''
+.img-uploader-wrapper input{
+  position: absolute;
+  z-index: 100;
+  height: 100px;
+  top:10px;
+  right:10px;
+  filter:~"alpha(opacity:0)";
+  opacity:0;
+}
+'''

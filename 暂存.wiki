@@ -1,0 +1,9 @@
+# family测试服务器
+
+```
+  SERVER: {
+      HOST: 'yx-testing-ite01.vm.baidu.com',
+      PORT: 8818,
+      CONTEXT:'portal/portal'
+  },
+```

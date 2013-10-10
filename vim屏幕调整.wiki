@@ -1,0 +1,31 @@
+vim多窗口有时候需要调整默认的窗口宽度和高度，可以用如下命令配合使用
+
+CTRL-W = 使得所有窗口 (几乎) 等宽、等高，但当前窗口使用 'winheight' 和 'winwidth'。
+
+:res[ize] -N 
+CTRL-W - 使得当前窗口高度减 N (默认值是 1)。如果在 'vertical' 之后使用，则使得宽度减 N。
+
+:res[ize] +N 
+CTRL-W + 使得当前窗口高度加 N (默认值是 1)。如果在 'vertical' 之后使用，则使得宽度加 N。
+
+:res[ize] [N]
+CTRL-W CTRL-_ 
+CTRL-W _ 设置当前窗口的高度为 N (默认值为最大可能高度)。
+
+:vertical res[ize] [N] 
+CTRL-W | 设置当前窗口的宽度为 N (默认值为最大可能宽度)。
+
+z{nr}<CR> 设置当前窗口的高度为 {nr}。
+
+CTRL-W < 使得当前窗口宽度减 N (默认值是 1)。 
+CTRL-W > 使得当前窗口宽度加 N (默认值是 1)。
+
+<整个窗口的移动>
+CTRL-W-H 将窗口移到最左边
+CTRL-W-L 将窗口移到最右边
+CTRL-W-J 将窗口移到底端
+CTRL-W-K 将窗口移到顶端
+
+注：
+1、我比较倾向于命令:[vertical] res[ize] [N]，暴力直接，:-)
+2、除此之外，也可以在sp或着vs的时候指定窗口的高度和宽度，具体在vim终查看帮助 help :sp

@@ -1,0 +1,22 @@
+### static
+
+- 优点:节省内存,对所有对象公有
+- 静态方法`+`类似于java的static方法
+
+
+### 变量的储存类别
+- auto 自动释放变量
+- const 常量
+- volatile 告诉编译器这是一个运行时可以改变的变量 javascript所有变量都是如此
+
+### @property和@synthesize
+2.0开始编译器可以自动生成设置变量值的方法和获取变量值的方法  .h文件对应的是@property,.m文件对应的是@synthesize
+- @property(属性列表) 实例变量
+  - assign 使用简单赋值语句为实例变量设置值
+  - copy 使用copy方法设置实例变量的值
+  - nonatomic 直接返回值.如果没有声明该属性,那么就是atomic属性,即对实例变量的存取是互斥锁定的(也就是说,再摸一个时刻,只有一个线程访问).在没有垃圾回收的情况下,系统retain这个实例变量,并设置autorelease,然后才返回值.
+  - readonly 不能设置实例变量的值,编译器不生成设置(setter)方法
+  - readwrite 可以获取并设置实例变量的值,对于@synthesize,编译器自动生成取值(getter)和设置(setter)方法
+  - retain 在赋值时执行retain操作
+  - getter=name
+  - setter=name
