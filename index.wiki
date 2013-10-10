@@ -1,8 +1,13 @@
 # 个人总结
 
+* [[objective-c]]
 * [[janus]]
+* [[SSO && oAuth]]
+* [[baidu-uuap]]
 * [[vim_skill]]
+* [[vim屏幕调整]]
 * [[node]]
+* [[less]]
 * [[node-File]]
 * [[node-Cluster]]
 * [[ejs]]
@@ -31,3 +36,13 @@
 * [[svn]]
 * [[周报]]
 * [[分享]]
+* [[跨平台js]]
+* [[nodejs-extend-BUG分析]]
+* [[ie6,7图片预览解决方案]]
+* [[java和轻量级脚本语言]]
+
+## [[暂存]]
+## jQuery
+* [[JS库]]
+* [[选择器]]
+* [[前端面试]]

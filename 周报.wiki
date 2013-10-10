@@ -1,1 +1,17 @@
 family项目积累bug的确认,清理(icafe)http://icafe.baidu.com/project/95046/component/bug/moduleList?cid=1
+
+
+本周
+1 EMM-ios端的继续跟进,帮PD梳理流程
+2 ios单点登录的调研告一段落
+3 跟进新需求,了解部门现有push-server的接口细节,编写ios-app端的pushSDK
+4 OC设计模式,网络通信部分api,app-push细节的了解
+
+
+
+ios 推送SDK和MOP传输加密SDK的制作,合并虚拟机和真机的静态包,使开发时无需切换包
+跑通和乔宇的apns连调
+跑通和小熊的加密连调
+由于移动办公编译不过,重新编写测试app,并申请相关appID,profile
+为server制作证书
+移动办公百度统计造成的编译错误定位

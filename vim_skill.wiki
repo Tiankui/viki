@@ -67,7 +67,7 @@ Janus 本身的快捷键
 * `,fef` 格式化当前文件
 * `,f` ack
 * `,hs` toggle highlight search
-* `set nohl`highlight 关闭高亮
+* `set nohl` nohighlight 关闭高亮
 
 移动加强
 ---
