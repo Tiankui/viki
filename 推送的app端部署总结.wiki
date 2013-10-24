@@ -1,0 +1,53 @@
+#ios推送系统调研报告
+#### 周伟平
+---
+### 前言
+ios的推送由系统提供的内部长连接进程负责和apns(apple的推送服务器)进行长连接,和我们编写的app是分开的两个部分,这一点和安卓需要自己独立开发不同,也就是说apple的推送我们并不具备完全的可控性.   
+就这段时间做pushSDK遇到的一些问题分析总结.
+
+### 推送的系统接口
+ios通过appDelegate的协议,在以下两个接口提供对远程推送的支持.  
+		
+	- (void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+		
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+		
+- 前者在app打开时对远程推送给予支持
+- 后者在app后台运行或完全没有开启的情况下给予支持
+
+### 使用须知
+经测试前者是没什么问题的,后者的实现是需要注意的地方  
+`launchOption`在正常情况下是`nil`,他对推送的支持只限于当用户通过推送条打开app时,此时`lauchOption`中会包含键为`UIApplicationLaunchOptionsRemoteNotificationKey`的字典,字典内容即为推送到apns服务器的`payload`
+
+### 客户端推送反馈的问题
+收到推送信息后打开一个app,有以下四种方式  
+
+点击app          |滑动推送条或点击顶部一闪即逝的推送栏
+             ---|---
+点击app图标新打开  |点击或滑动推送信息打开
+点击app从后台唤醒  |点击或滑动推送信息从后台唤醒
+*无法获得反馈*    |*通过launchOption获得当条的反馈*
+
+加上app开着的情况,一共是五种.  
+五种情况下,1,3两种情况下,设备完全没有任何方法得知已经接收到了推送,也没有办法给予反馈.
+server端现在的解决方案是,没有反馈的信息就算没有推到.app打开之后会去fetch一下离线信息,这样虽然用户会受到
+
+### 测试token和正式证书,正式token和测试证书,互推的问题
+测试结果是,退不通,apns报错误8,`invalid token`.  
+测试和正式的token是长度完全一样的两个不同字符串.得到后应进行截取和替换处理(代理函数的到的是NSData类型的token)
+
+### 到达率的问题
+两种选择:  
+
+- 完全信任apns
+- 完全不信任apns
+
+如果按照一对一的接受反馈对信息发送予以统计,那当用户接受到推送信息,但是直接点击app的方式打开app时,我们的程序是没有机会知道信息是否收到的.也就无法给予信息反馈.
+
+在完全信任apns的情况下,就这样了,那么实际上会app不在前台时点击图标类的操作,我们是服务获得是否送达的反馈的.  
+
+如果想获得完整的反馈,就在app启动后fetch一下离线信息.由于server端会把所有没有反馈的标志为离线消息,所以这时候会重发一次.(这里注意重发的过期时间设置)
+
+### 共识
+而且apple文档之中,对于消息推送给予的意见,在极端情况下,不保证信息完全送达.  
+对于这一点,应该大家达成共识.在特别需求下,加上补救方案.

@@ -1,6 +1,9 @@
 # 个人总结
 
+### ios
 * [[objective-c]]
+* [[推送的app端部署总结]]
+### 终端
 * [[janus]]
 * [[SSO && oAuth]]
 * [[baidu-uuap]]
@@ -26,7 +29,6 @@
 * [[机器学习]]
 * [[命令行学习]]
 * [[工作总结]]
-* [[假期计划]]
 * [[underscore.js]]
 * [[coffee script]]
 * [[摘录]]
